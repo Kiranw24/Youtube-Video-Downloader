@@ -1,11 +1,18 @@
 from tkinter import *
-
+from PIL import Image, ImageTk
 from pytube import YouTube
 
 root = Tk()
 root.geometry('400x250')
 root.title('Youtube Video Downloader Application')
 root.configure(bg='magenta')
+
+image = Image.open("C:/Users/Kiran Ware/PycharmProjects/tkinter/youtube-logo.png")
+image = image.resize((100,50))
+photo = ImageTk.PhotoImage(image)
+
+lab = Label(image=photo)
+lab.pack()
 
 def download():
     try:
@@ -26,7 +33,7 @@ myVar.set('Enter the link below')
 Entry(root,textvariable=myVar,width=25,font='Consolas 15 bold').pack(pady=10)
 
 link = StringVar()
-Entry(root,textvariable=link,width=40,font=('bold',15)).pack(pady=10)
+Entry(root,textvariable=link,width=25,font=('bold',15)).pack(pady=10)
 
 Button(root,text='Download Video',bg='yellow',font=('bold',15),command=download).pack()
 
